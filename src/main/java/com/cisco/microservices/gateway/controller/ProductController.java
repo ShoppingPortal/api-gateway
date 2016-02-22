@@ -4,6 +4,8 @@ import com.cisco.microservices.gateway.service.ProductService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,19 +24,19 @@ public class ProductController {
 
   @RequestMapping(value = "/addProduct", method = RequestMethod.POST,
       consumes = MediaType.APPLICATION_JSON_VALUE)
-  Object add() {
-    return productService.add();
+  Object add(@RequestBody Object obj) {
+    return productService.add(obj);
   }
 
   @RequestMapping(value = "/updateProduct", method = RequestMethod.POST,
       consumes = MediaType.APPLICATION_JSON_VALUE)
-  Object update() {
-    return productService.update();
+  Object update(@RequestBody Object obj) {
+    return productService.update(obj);
   }
 
-  @RequestMapping(value = "/product/delete/{productID}", method = RequestMethod.DELETE)
-  Object delete() {
-    return productService.delete();
+  @RequestMapping(value = "/delete/{productId}", method = RequestMethod.GET)
+  Object delete(@PathVariable("productId") Long productId) {
+    return productService.delete(productId);
   }
 
 }

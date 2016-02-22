@@ -14,5 +14,5 @@ public interface UserService {
 
   @RequestMapping(value = "/user/addUser", method = RequestMethod.POST,
       consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-  Object add();
+  Object add(Object obj);
 }
