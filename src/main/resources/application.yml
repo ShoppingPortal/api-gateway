@@ -1,0 +1,19 @@
+# HTTP Server
+server:
+  port: 3333   # HTTP (Tomcat) port
+
+# Spring properties
+spring:
+  application:
+     name: gateway-service
+
+ribbon:
+  ServerListRefreshInterval: 1000
+
+endpoints:
+  health:
+    sensitive: false
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
