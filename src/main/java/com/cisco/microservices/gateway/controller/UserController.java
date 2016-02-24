@@ -4,6 +4,7 @@ import com.cisco.microservices.gateway.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,7 +17,7 @@ public class UserController {
   @Autowired
   UserService userService;
 
-  @RequestMapping(value = "/list", method = RequestMethod.GET, 
+  @RequestMapping(value = "/list", method = RequestMethod.GET,
       produces = MediaType.APPLICATION_JSON_VALUE)
   public Object getAllUsers() {
     return userService.getAll();
@@ -26,5 +27,11 @@ public class UserController {
       consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
   Object add(@RequestBody Object obj) {
     return userService.add(obj);
+  }
+
+  @RequestMapping(value = "/delete/{username}", method = RequestMethod.DELETE,
+      produces = MediaType.APPLICATION_JSON_VALUE)
+  Object delete(@PathVariable("username") String username) {
+    return userService.delete(username);
   }
 }

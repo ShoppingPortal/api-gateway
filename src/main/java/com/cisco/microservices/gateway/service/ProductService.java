@@ -16,11 +16,11 @@ public interface ProductService {
       consumes = MediaType.APPLICATION_JSON_VALUE)
   Object add(Object obj);
 
-  @RequestMapping(value = "/product/updateProduct", method = RequestMethod.POST,
+  @RequestMapping(value = "/product/updateProduct", method = RequestMethod.PUT,
       consumes = MediaType.APPLICATION_JSON_VALUE)
   Object update(Object obj);
 
-  @RequestMapping(value = "/product/delete/{productId}", method = RequestMethod.GET)
+  @RequestMapping(value = "/product/delete/{productId}", method = RequestMethod.DELETE)
   Object delete(@PathVariable("productId") Long productId);
 
 }

@@ -28,13 +28,13 @@ public class ProductController {
     return productService.add(obj);
   }
 
-  @RequestMapping(value = "/updateProduct", method = RequestMethod.POST,
+  @RequestMapping(value = "/updateProduct", method = RequestMethod.PUT,
       consumes = MediaType.APPLICATION_JSON_VALUE)
   Object update(@RequestBody Object obj) {
     return productService.update(obj);
   }
 
-  @RequestMapping(value = "/delete/{productId}", method = RequestMethod.GET)
+  @RequestMapping(value = "/delete/{productId}", method = RequestMethod.DELETE)
   Object delete(@PathVariable("productId") Long productId) {
     return productService.delete(productId);
   }
