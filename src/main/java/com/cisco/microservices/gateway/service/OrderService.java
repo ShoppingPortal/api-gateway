@@ -24,6 +24,6 @@ public interface OrderService {
       consumes = MediaType.APPLICATION_JSON_VALUE)
   Object update(@PathVariable("id") Long id, @RequestBody Object obj);
 
-  @RequestMapping(value = "/api/order/delete/{id}", method = RequestMethod.DELETE)
-  Object delete(@PathVariable("id") Long id);
+  /*@RequestMapping(value = "/api/order/delete/{id}", method = RequestMethod.DELETE)
+  Object delete(@PathVariable("id") Long id);*/
 }

@@ -39,8 +39,8 @@ public class OrderController {
     return orderService.update(id, obj);
   }
 
-  @RequestMapping(value = "/order/delete/{id}", method = RequestMethod.DELETE)
+/*  @RequestMapping(value = "/order/delete/{id}", method = RequestMethod.DELETE)
   Object delete(@PathVariable("id") Long id) {
     return orderService.delete(id);
-  }
+  }*/
 }
