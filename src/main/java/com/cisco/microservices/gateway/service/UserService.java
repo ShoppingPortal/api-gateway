@@ -6,13 +6,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @FeignClient("USERS-SERVICE")
 public interface UserService {
 
   @RequestMapping(value = "/user/list", method = RequestMethod.GET,
       produces = MediaType.APPLICATION_JSON_VALUE)
-  Object getAll();
+  Object getAll(@RequestParam(value = "type", required = false) Object params);
 
   @RequestMapping(value = "/user/addUser", method = RequestMethod.POST,
       consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
